@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=Contacto
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Contacto\ here.\r\n\ \r\n\ @author\ (Zingerling,\ Roldan)\ \r\n\ @version\ (1.0)\r\n
+comment1.params=nombre\ localidad\ direccion\ telefono
+comment1.target=Contacto(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String)
+comment2.params=
+comment2.target=java.lang.String\ getNombre()
+comment3.params=nombre
+comment3.target=void\ setNombre(java.lang.String)
+comment4.params=
+comment4.target=java.lang.String\ getLocalidad()
+comment5.params=localidad
+comment5.target=void\ setLocalidad(java.lang.String)
+comment6.params=
+comment6.target=java.lang.String\ getDireccion()
+comment7.params=direccion
+comment7.target=void\ setDireccion(java.lang.String)
+comment8.params=
+comment8.target=java.lang.String[]\ getTelefono()
+comment9.params=telefono
+comment9.target=void\ setTelefono(java.lang.String)
+numComments=10
