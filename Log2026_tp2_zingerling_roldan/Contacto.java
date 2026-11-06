@@ -108,7 +108,7 @@ public class Contacto{
     }
     
     public void agregarTelefono() {
-        // 1. Verificar si hay lugar libre
+        //Verificar si hay lugar libre
         int posicion = elementoVacio();
         if (posicion == -1) {
             System.out.println("No existe más lugar para agregar números telefónicos");
@@ -119,7 +119,7 @@ public class Contacto{
         String caracteristica = "";
         boolean caracValida = false;
 
-        // 2. Pedir y validar característica
+        //Pedir y validar característica
         while (caracValida == false) {
             System.out.print("Ingrese la característica telefónica: ");
             caracteristica = teclado.next();
@@ -134,7 +134,7 @@ public class Contacto{
         int numero = 0;
         boolean numValido = false;
 
-        // 3. Pedir y validar número
+        //Pedir y validar número
         while (numValido == false) {
             System.out.print("Ingrese el número de teléfono: ");
             numero = teclado.nextInt();
@@ -146,7 +146,7 @@ public class Contacto{
             }
         }
 
-        // 4. Guardar en la posición vacía
+        //Guardar en la posición vacía
         this.telefono[posicion] = caracteristica + "-" + numero;
         System.out.println("Teléfono agregado con éxito.");
     }
@@ -161,19 +161,19 @@ public class Contacto{
     }
     
     public boolean validarCaracteristica(String c) {
-        // 1. Verificamos que no sea nula
+        //Verificamos que no sea nula
         if (c == null) {
             return false;
         }
-        // 2. Verificamos que la longitud sea entre 3 y 5
+        //Verificamos que la longitud sea entre 3 y 5
         if (c.length() < 3 || c.length() > 5) {
             return false;
         }
-        // 3. Verificamos que empiece con cero
+        //Verificamos que empiece con cero
         if (!c.startsWith("0")) {
             return false;
         }
-        // 4. Verificamos que todos los caracteres sean dígitos (0 al 9)
+        //Verificamos que todos los caracteres sean dígitos (0 al 9)
         for (int i = 0; i < c.length(); i++) {
             char digito = c.charAt(i);
             if (digito < '0' || digito > '9') {
@@ -181,11 +181,10 @@ public class Contacto{
             }
         }
         
-        return true; // Si pasó todas las pruebas, es válida
+        return true;
     }
 
     public boolean validarNumero(int n) {
-        // Un número de 5 a 7 dígitos está entre 10000 y 9999999
         if (n >= 10000 && n <= 9999999) {
             return true;
         } else {
@@ -194,59 +193,55 @@ public class Contacto{
     }
     
     public boolean validarPosicion(int p) {
-        // 1. Verificamos que la posición ingresada esté entre 1 y 5
+        //Verificamos que la posición ingresada esté entre 1 y 5
         if (p >= 1 && p <= 5) {
             
-            // 2. Calculamos el índice real del arreglo (la posición 1 es el índice 0)
+            //Calculamos el índice real del arreglo (la posición 1 es el índice 0)
             int indice = p - 1;
             
-            // 3. Verificamos que ese lugar no esté vacío (ni nulo ni en blanco)
+            //Verificamos que ese lugar no esté vacío (ni nulo ni en blanco)
             if (this.telefono[indice] != null && !this.telefono[indice].trim().isEmpty()) {
                 return true; // La posición es válida y tiene un teléfono
             }
         }
         
-        return false; // Si no cumple alguna de las condiciones, es inválida
+        return false;
     }
     
     public void listarTelefonos() {
         boolean hayTelefonos = false;
         
         for (int i = 0; i < this.telefono.length; i++) {
-            // Si la posicion no es nula y no esta vacia, mostramos el telefono
             if (this.telefono[i] != null && !this.telefono[i].trim().isEmpty()) {
                 hayTelefonos = true;
                 System.out.println((i + 1) + ") " + this.telefono[i]);
             }
         }
         
-        // Si termino el for y nunca cambio la variable, es porque esta vacio
         if (hayTelefonos == false) {
             System.out.println("No existen números de teléfonos en la lista");
         }
     }
     
     public void agregarTelefono(String caracteristica, int numero) {
-        // Desafío: Validar la característica y el número antes de guardar
+        //DESAFIO: Validar la característica y el número antes de guardar.
         if (!validarCaracteristica(caracteristica) || !validarNumero(numero)) {
             System.out.println("El número ingresado es erróneo");
             return; // Termina la ejecución del método aquí y no guarda nada
         }
 
-        // 1. Verificar que haya un elemento vacío
         int posicion = elementoVacio();
         
         if (posicion == -1) {
             System.out.println("No existe más lugar para agregar números telefónicos");
-            return; // Termina la ejecución del método aquí
+            return;
         }
 
-        // Si es válido y hay lugar, se guarda con el formato requerido
         this.telefono[posicion] = caracteristica + "-" + numero;
     }
     
     public void eliminarTelefono() {
-        // 1. Verificar si hay al menos un teléfono cargado
+        //Verificar si hay al menos un teléfono cargado
         boolean hayTelefonos = false;
         for (int i = 0; i < this.telefono.length; i++) {
             if (this.telefono[i] != null && !this.telefono[i].trim().isEmpty()) {
@@ -256,13 +251,13 @@ public class Contacto{
         
         if (hayTelefonos == false) {
             System.out.println("No existen números de teléfonos en la lista");
-            return; // Termina el método aquí
+            return;
         }
 
-        // 2. Mostrar los teléfonos disponibles
+        //Mostrar los teléfonos disponibles
         listarTelefonos();
 
-        // 3. Pedir la posición por teclado y validarla
+        //Pedir la posición por teclado y validarla
         Scanner teclado = new Scanner(System.in);
         int posicion = 0;
         boolean posicionValida = false;
@@ -278,14 +273,14 @@ public class Contacto{
             }
         }
 
-        // 4. Eliminar el teléfono asignando una cadena vacía
+        //Eliminar el teléfono asignando una cadena vacía
         int indice = posicion - 1;
         this.telefono[indice] = "";
         System.out.println("Teléfono eliminado con éxito.");
     }
     
     public void modificarTelefono() {
-        // 1. Verificar si hay al menos un teléfono cargado
+        //Verificar si hay al menos un teléfono cargado
         boolean hayTelefonos = false;
         for (int i = 0; i < this.telefono.length; i++) {
             if (this.telefono[i] != null && !this.telefono[i].trim().isEmpty()) {
@@ -295,15 +290,15 @@ public class Contacto{
         
         if (hayTelefonos == false) {
             System.out.println("No existen números de teléfonos en la lista para modificar");
-            return; // Termina el método aquí
+            return;
         }
 
-        // 2. Mostrar los teléfonos disponibles
+        //Mostrar los teléfonos disponibles
         listarTelefonos();
 
         Scanner teclado = new Scanner(System.in);
         
-        // 3. Pedir la posición y validarla
+        //Pedir la posición y validarla
         int posicion = 0;
         boolean posicionValida = false;
         while (posicionValida == false) {
@@ -317,7 +312,7 @@ public class Contacto{
             }
         }
 
-        // 4. Pedir la nueva característica y validarla
+        //Pedir la nueva característica y validarla
         String caracteristica = "";
         boolean caracValida = false;
         while (caracValida == false) {
@@ -331,7 +326,7 @@ public class Contacto{
             }
         }
 
-        // Pedir el nuevo número y validarlo
+        //Pedir el nuevo número y validarlo
         int numero = 0;
         boolean numValido = false;
         while (numValido == false) {
@@ -345,7 +340,7 @@ public class Contacto{
             }
         }
 
-        // 5. Reemplazar el teléfono viejo por el nuevo
+        //Reemplazar el teléfono viejo por el nuevo
         int indice = posicion - 1;
         this.telefono[indice] = caracteristica + "-" + numero;
         System.out.println("Teléfono modificado con éxito.");

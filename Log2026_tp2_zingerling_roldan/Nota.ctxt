@@ -1,20 +1,24 @@
 #BlueJ class context
-#Thu Nov 05 20:32:41 ART 2026
 comment0.target=Nota
-comment0.text=\r\n Write a description of class Nota here.\r\n \r\n @author (Zingerling, Roldan) \r\n @version (1.0)\r\n
-comment1.target=java.lang.String getTitulo()
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Nota\ here.\r\n\ \r\n\ @author\ (Zingerling,\ Roldan)\ \r\n\ @version\ (1.0)\r\n
+comment1.params=
+comment1.target=java.lang.String\ getTitulo()
 comment10.params=contacto
-comment10.target=void setContacto(Contacto)
+comment10.target=void\ setContacto(Contacto)
 comment2.params=titulo
-comment2.target=void setTitulo(java.lang.String)
-comment3.target=java.lang.String getTexto()
+comment2.target=void\ setTitulo(java.lang.String)
+comment3.params=
+comment3.target=java.lang.String\ getTexto()
 comment4.params=texto
-comment4.target=void setTexto(java.lang.String)
-comment5.target=int getMes()
+comment4.target=void\ setTexto(java.lang.String)
+comment5.params=
+comment5.target=int\ getMes()
 comment6.params=mes
-comment6.target=void setMes(int)
-comment7.target=int getDia()
+comment6.target=void\ setMes(int)
+comment7.params=
+comment7.target=int\ getDia()
 comment8.params=dia
-comment8.target=void setDia(int)
-comment9.target=Contacto getContacto()
+comment8.target=void\ setDia(int)
+comment9.params=
+comment9.target=Contacto\ getContacto()
 numComments=11

@@ -17,31 +17,30 @@ public class Agenda {
     private ArrayList<Nota> notas;
     private HashMap<String, Contacto> contactos;
 
-    // 4.2 Constructor
+    //Constructor
     public Agenda(String nombre) {
         this.nombre = nombre;
         notas = new ArrayList<Nota>();
         contactos = new HashMap<String, Contacto>();
     }
 
-    // Agregar una nota
+    //Agregar una nota
     public void agregarNota(Nota nota) {
         notas.add(nota);
         
         String nombreContacto = nota.getContacto().getNombre();
-        // Si no existe, lo registra usando el método agregarContacto como pide el PDF
         if (!contactos.containsKey(nombreContacto)) {
             agregarContacto(nota.getContacto());
         }
     }
 
-    // Listar todas las notas
+    //Listar todas las notas
     public void listarNotas() {
         if (notas.isEmpty()) {
             System.out.println("La agenda no tiene notas");
         } else {
             for (Nota nota : notas) {
-                System.out.println("****");
+                System.out.println("***************");
                 System.out.println("Nombre: " + this.nombre);
                 System.out.println("Título: " + nota.getTitulo() + " Texto: " + nota.getTexto() + " Mes: " + nota.getMes() + " Día: " + nota.getDia());
                 
@@ -49,12 +48,12 @@ public class Agenda {
                 System.out.println("Contacto: " + c.getNombre() + " Localidad: " + c.getLocalidad() + " Dirección: " + c.getDireccion());
                 System.out.println("Teléfonos:");
                 c.listarTelefonos();
-                System.out.println("****");
+                System.out.println("***************");
             }
         }
     }
 
-    // Agregar un contacto
+    //Agregar un contacto
     public void agregarContacto(Contacto contacto) {
         String nombreContacto = contacto.getNombre();
 
@@ -65,7 +64,7 @@ public class Agenda {
         }
     }
 
-    // Eliminar un contacto
+    //Eliminar un contacto
     public void eliminarContacto(String nombre) {
         String nombreClave = nombre.toUpperCase();
 
@@ -82,7 +81,7 @@ public class Agenda {
         }
     }
 
-    // Listar todos los contactos
+    //Listar todos los contactos
     public void listarContactos() {
         if (contactos.isEmpty()) {
             System.out.println("La agenda no tiene contactos");
@@ -95,7 +94,7 @@ public class Agenda {
         }
     }
 
-    // Listar contactos que tienen notas
+    //Listar contactos que tienen notas
     public void listarContactosConNotas() {
         boolean hay = false;
         for (Contacto contacto : contactos.values()) {
@@ -112,7 +111,7 @@ public class Agenda {
         }
     }
 
-    // Listar contactos que no tienen notas
+    //Listar contactos que no tienen notas
     public void listarContactosSinNotas() {
         boolean hay = false;
         for (Contacto contacto : contactos.values()) {
@@ -129,7 +128,7 @@ public class Agenda {
         }
     }
 
-    // Comprobar si un contacto tiene notas
+    //Comprobar si un contacto tiene notas
     private boolean tieneNotas(Contacto contacto) {
         for (Nota nota : notas) {
             if (nota.getContacto() == contacto) {
@@ -139,7 +138,7 @@ public class Agenda {
         return false;
     }
 
-    // Buscar notas de un contacto (Desafío)
+    //DESAFIO: Buscar notas de un contacto.
     public void buscarXcontacto(String nombre) {
         String nombreClave = nombre.toUpperCase();
 
@@ -154,19 +153,19 @@ public class Agenda {
                 return;
             }
 
-            System.out.println("***");
+            System.out.println("************");
             for (Nota nota : notas) {
                 if (nota.getContacto() == contacto) {
                     System.out.println("Título: " + nota.getTitulo() + " Texto: " + nota.getTexto());
                     cantidad++;
                 }
             }
-            System.out.println("***");
+            System.out.println("************");
             System.out.println("Total de notas: " + cantidad);
         }
     }
 
-    // Listar contactos en orden alfabético (Desafío)
+    //DESAFIO: Listar contactos en orden alfabético.
     public void listarContactosAlfa() {
         ArrayList<String> nombres = new ArrayList<String>(contactos.keySet());
         Collections.sort(nombres);
@@ -176,7 +175,7 @@ public class Agenda {
         }
     }
 
-    // Buscar notas por el comienzo del título (Desafío)
+    //DESAFIO: Buscar notas por el comienzo del título.
     public void buscarXtitulos(String inicio) {
         String inicioClave = inicio.toUpperCase();
         int cantidad = 0;
@@ -184,7 +183,6 @@ public class Agenda {
         for (Nota nota : notas) {
             if (nota.getTitulo().toUpperCase().startsWith(inicioClave)) {
                 Contacto c = nota.getContacto();
-                // Se imprime todo en una línea como pide el PDF, seguido de los teléfonos
                 System.out.println(nota.getTitulo() + " " + nota.getTexto() + " " + c.getNombre() + " " + c.getLocalidad());
                 c.listarTelefonos();
                 cantidad++;
