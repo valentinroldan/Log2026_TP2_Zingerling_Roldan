@@ -1,0 +1,23 @@
+#BlueJ class context
+#Thu Nov 05 21:15:31 ART 2026
+comment0.target=Agenda
+comment1.params=nombre
+comment1.target=Agenda(java.lang.String)
+comment10.params=nombre
+comment10.target=void buscarXcontacto(java.lang.String)
+comment11.target=void listarContactosAlfa()
+comment12.params=inicio
+comment12.target=void buscarXtitulos(java.lang.String)
+comment2.params=nota
+comment2.target=void agregarNota(Nota)
+comment3.target=void listarNotas()
+comment4.params=contacto
+comment4.target=void agregarContacto(Contacto)
+comment5.params=nombre
+comment5.target=void eliminarContacto(java.lang.String)
+comment6.target=void listarContactos()
+comment7.target=void listarContactosConNotas()
+comment8.target=void listarContactosSinNotas()
+comment9.params=contacto
+comment9.target=boolean tieneNotas(Contacto)
+numComments=13
